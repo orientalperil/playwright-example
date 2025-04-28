@@ -1,0 +1,25 @@
+[project]
+name = "playwright-example"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Your Name",email = "you@example.com"}
+]
+requires-python = ">=3.10"
+dependencies = [
+    "pytest-playwright (>=0.7.0,<0.8.0)",
+    "playwright-stealth (>=1.0.6,<2.0.0)",
+    "dotenv (>=0.9.9,<0.10.0)",
+    "setuptools (>=79.0.1,<80.0.0)"
+]
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^8.36.0"
+isort = "^6.0.1"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
