@@ -56,12 +56,25 @@ def login():
 
 
 def test():
+    name = "name"
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
-        context = browser.new_context(storage_state="auth.json")  # Load saved state
+        context = browser.new_context(storage_state="auth.json")
         page = context.new_page()
-        page.goto("https://www.google.com")
-        # Verify login by checking for a logged-in element
-        print("Page title:", page.title())
-        time.sleep(20)
+        page.goto("https://studio.youtube.com/")
+        page.get_by_role("button", name="Content").click()
+
+        page.get_by_role("button", name=name).click()
+        page.get_by_role("radio", name="No, it's not made for kids").click()
+        page.get_by_label("Next", exact=True).click()
+        page.get_by_label("Next", exact=True).click()
+        page.get_by_label("Next", exact=True).click()
+        page.get_by_role("radio", name="Unlisted").click()
+        page.get_by_label("Save", exact=True).click()
+        page.locator("ytcp-video-share-dialog #close-button").get_by_role("button", name="Close").click()
+        page.goto("https://studio.youtube.com/")
+        page.get_by_role("button", name="Content").click()
+        time.sleep(60)
+
+        context.close()
         browser.close()
