@@ -10,7 +10,8 @@ dependencies = [
     "pytest-playwright (>=0.7.0,<0.8.0)",
     "playwright-stealth (>=1.0.6,<2.0.0)",
     "dotenv (>=0.9.9,<0.10.0)",
-    "setuptools (>=79.0.1,<80.0.0)"
+    "setuptools (>=79.0.1,<80.0.0)",
+    "nest-asyncio (>=1.6.0,<2.0.0)"
 ]
 
 [tool.poetry]
